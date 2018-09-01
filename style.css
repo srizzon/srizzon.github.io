@@ -1,0 +1,41 @@
+.container {
+	width: 100%;
+	position: relative;
+}
+.eye {
+	position: relative;
+	display: inline-block;
+	border-radius: 50%;
+	height: 30px;
+	width: 30px;
+}
+.eye:after { /*pupil*/
+	position: absolute;
+	bottom: 17px;
+	right: 10px;
+	width: 10px;
+	height: 10px;
+	background: #623f33;
+	border-radius: 50%;
+	content: " ";
+}
+
+.centered {
+	position: absolute;
+	top: 38%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+
+.hero-body {
+	background-image: url(images/dev.jpg);
+	transition: .5s ease-in-out;
+	background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.hero-body:hover {
+	transition: .5s ease-in-out;
+}

@@ -1,0 +1,30 @@
+﻿<div class="container">
+    <form class="form-signin">
+        <div class="panel periodic-login">
+            <div class="panel-body text-center">
+                <h1 class="atomic-symbol">Starfeed</h1>
+
+
+                <div class="form-group form-animate-text" style="margin-top:40px !important;">
+                    <input type="text" class="form-text" ng-model="vm.username" required>
+                    <span class="bar"></span>
+                    <label for="username">Login</label>
+                </div>
+                <div class="form-group form-animate-text" style="margin-top:40px !important;">
+                    <input type="password" class="form-text"  ng-model="vm.password" required>
+                    <span class="bar"></span>
+                    <label>Senha</label>
+                </div>
+                <div class="row">
+                    <div class="center-block">
+                        <button class="btn ripple btn-round" ng-click="vm.login()" "  style="background-color: #212121;">
+                            <div>
+                                <span style="color: #fff">LOGIN</span>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

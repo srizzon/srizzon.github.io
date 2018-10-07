@@ -1,0 +1,90 @@
+﻿<!-- start: Header -->
+<nav class="navbar navbar-default header navbar-fixed-top shadow">
+	<div class="nav-wrapper">
+		<div class="navbar-header" style="width:100%;">
+			<a href="index.html" class="navbar-brand"> 
+				<b style="color: #212121">Starfeed</b>
+			</a>
+
+			<div class="nav navbar-nav navbar-right user-nav" style="margin: 10px;">
+				<a class="btn ripple btn-round" style="background-color: #212121;" href="#!/login">
+					<div>
+						<span style="color: #fff">LOGOUT</span>
+					</div>
+				</a>
+			</div>
+		</div>
+	</div>
+</nav>
+<!-- end: Header -->
+
+<div class="container-fluid mimin-wrapper" ng-controller="PresenceController" id="presenceController">
+	<!-- start: Content -->
+	<div id="content" style="margin-top: 100px;">
+		<div class="form-element">
+			<div class="padding-0">
+				<div class="panel">
+
+					<div class="row">
+						<div class="text-center">
+							<h1>Lista de chamada</h1>
+							<p> Clique no botão 'Start' para dar início ao período de chamada </p>
+						</div>
+						<div class="center-block" style="padding: 0px 30px 0px 30px;">
+							<button class="btn ripple btn-round" style="background-color: #212121;">
+								<div>
+									<span style="color: #fff">START</span>
+								</div>
+							</button>
+						</div>
+
+						<div class="text-center">
+								<p style="text-decoration: underline;"> Clique aqui para recarregar</p>
+							</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-12 padding-0">
+				<div class="col-md-12 center" style="padding:10px;">
+
+					<div class="row" style="text-align: center;">
+						<div class="panel panel-card" style="width: 300px; font-size: 15px; margin: 0;" ng-if="home.feedbacks.length <= 0 || home.dataLoading == true">
+							<div class="text-center">
+								<p ng-if="home.dataLoading == false">Nenhum feedback encontrado.</p>
+								<p ng-if="home.dataLoading == true">Carregando...</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="row" style="text-align: center;">
+						<div class="grid" data-masonry='{ "itemSelector": ".grid-item", "columnWidth": 200 }'>
+							<div class="grid-item" ng-repeat="feedback in home.feedbacks">
+								<div class="panel panel-card-feedback">
+									<div class="text-center">
+										<p>{{feedback.AvaliacaoAluno.nota_avaliacao}} estrelas</p>
+
+										<div ng-if="feedback.AvaliacaoAluno.descricao_avaliacao">
+											<div class="panel">
+												<div style="margin: 10px; padding: 10px;">
+													{{feedback.AvaliacaoAluno.descricao_avaliacao}}
+												</div>
+											</div>
+										</div>
+
+										<div ng-if="feedback.CardBoard">
+											<div class="panel panel-cardboard" ng-repeat="card in feedback.CardBoard">
+												<img ng-src="assets/{{card.icone}}.png" class="img-card" alt="Smiley face" height="20" width="20">
+												<p>{{card.nome_emocao}}</p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

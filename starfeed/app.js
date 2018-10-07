@@ -34,7 +34,7 @@
     function run($rootScope, $location, $cookies, $http) {
 
         //$rootScope.ROOT_URL = "http://fcarvalho-001-site2.etempurl.com/tcc-api/";
-        $rootScope.ROOT_URL = "http://srizzon-001-site1.dtempurl.com/tcc-api/";
+        $rootScope.ROOT_URL = "https://starfeed.tk/tcc-api/";
         //$rootScope.ROOT_URL = "http://localhost:62945/tcc-api/";
         
         // keep user logged in after page refresh

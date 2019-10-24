@@ -62,11 +62,11 @@ $('.hero-body').on('click', function(){
 		if((rot <= 100) || (rot >= 250))
 			document.location.href = 'dev.html';
 		else
-			document.location.href = 'photo.html';
+			document.location.href = 'https://rizzonfotografia.myportfolio.com/';
 	}else{
 		if(rot >= 180)
 			document.location.href = 'dev.html';
 		else
-			document.location.href = 'photo.html';
+			document.location.href = 'https://rizzonfotografia.myportfolio.com/';
 	}
 });

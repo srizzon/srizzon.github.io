@@ -5,6 +5,8 @@ window.addEventListener("DOMContentLoaded", function() {
     var form = document.getElementById("contactForm");
     var button = document.getElementById("send-button-form");
     var status = document.getElementById("form-message-warning");
+    var $submit = $('.submitting')
+    var waitText = 'Enviando...';
 
     // Success and Error functions for after the form is submitted
     
@@ -28,6 +30,8 @@ window.addEventListener("DOMContentLoaded", function() {
 
     form.addEventListener("submit", function(ev) {
       ev.preventDefault();
+      $submit.css('display', 'block').text(waitText);
+      
       var data = new FormData(form);
       ajax(form.method, form.action, data, success, error);
     });

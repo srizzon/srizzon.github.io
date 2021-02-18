@@ -126,14 +126,15 @@ b, strong {
 
 .btn.btn-outline-pill.btn-custom-light {
   color: var(--text-color);
-  border: 2px solid rgba(255, 255, 255, 0.5);
+  border: 2px solid #d63447;
   -webkit-transition: .3s all ease;
   -o-transition: .3s all ease;
   transition: .3s all ease;
+  transform: scale(0.95);
 }
 
 .btn.btn-outline-pill.btn-custom-light:hover, .btn.btn-outline-pill.btn-custom-light:active, .btn.btn-outline-pill.btn-custom-light:focus {
-  border-color: var(--text-color);
+  transform: scale(1);
 }
 
 .btn.btn-bg-white--hover:hover {
@@ -1396,6 +1397,7 @@ figure.dotted-bg:before {
   line-height: 40px;
   position: relative;
   z-index: 1;
+  min-height: 250px;
   -webkit-box-shadow: 0px 30px 0 -20px var(--secondary-color);
   box-shadow: 0px 30px 0 -20px var(--secondary-color);
 }

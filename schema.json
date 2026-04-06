@@ -1,0 +1,17 @@
+{
+  "site": [
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Samuel Rizzon",
+      "url": "https://samuelrizzon.dev"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Samuel Rizzon",
+      "url": "https://samuelrizzon.dev"
+    }
+  ],
+  "pages": {}
+}

@@ -1,0 +1,82 @@
+{
+  "version": "1.0",
+  "generated": "2026-04-06",
+  "site": {
+    "title": "Samuel Rizzon",
+    "description": "Frontend Engineer with 10 years of experience. Building products people use.",
+    "url": "https://samuelrizzon.dev"
+  },
+  "person": {
+    "name": "Samuel Rizzon",
+    "title": "Frontend Engineer",
+    "yearsOfExperience": 10,
+    "location": "Brazil",
+    "openToRelocate": true,
+    "email": "hello@samuelrizzon.dev",
+    "handle": "@samuelrizzondev",
+    "languages": ["Portuguese", "English"],
+    "skills": ["React", "Next.js", "Angular", "TypeScript", "Three.js", "Tailwind CSS", "Node.js", "Supabase", "PostgreSQL", "Figma", "Claude Code", "Stripe"]
+  },
+  "projects": [
+    {
+      "name": "Git City",
+      "url": "https://thegitcity.com",
+      "description": "3D pixel art city in the browser where every building is a real GitHub developer",
+      "metrics": { "visitors": "100K+", "pageviews": "350K+", "adsSold": 134 },
+      "tech": ["Next.js", "Three.js", "TypeScript", "Supabase", "Stripe"]
+    },
+    {
+      "name": "Reply-OS",
+      "url": "https://reply-os.com",
+      "description": "AI-powered SaaS for X/Twitter engagement. Built in one week.",
+      "metrics": { "mrr": "$1K", "timeToMrr": "1 month" },
+      "tech": ["Next.js", "AI/LLM", "Stripe", "TypeScript"]
+    },
+    {
+      "name": "ZardUI",
+      "url": "https://zardui.com",
+      "description": "Open-source Angular component library. The shadcn/ui for Angular.",
+      "metrics": { "githubStars": 939, "components": "30+" },
+      "tech": ["Angular", "TypeScript", "Tailwind CSS"]
+    },
+    {
+      "name": "Chrome Extension",
+      "description": "Chrome extension built during the pandemic. Sold after one year.",
+      "metrics": { "users": "150K+", "soldFor": "$2,000" },
+      "tech": ["JavaScript", "Chrome APIs"]
+    }
+  ],
+  "experience": [
+    {
+      "company": "Blackthorn.io",
+      "role": "Full-Stack Developer",
+      "period": "Jan 2023 - Present",
+      "location": "Remote, New York"
+    },
+    {
+      "company": "CI&T",
+      "role": "Senior Frontend Developer",
+      "period": "Apr 2022 - Jan 2023",
+      "highlight": "Ford F-150 launch"
+    },
+    {
+      "company": "TOTVS",
+      "role": "Frontend Developer",
+      "period": "Dec 2016 - Mar 2022",
+      "highlight": "Electronic Signature product, 150K+ users"
+    }
+  ],
+  "social": {
+    "github": "https://github.com/srizzon",
+    "linkedin": "https://linkedin.com/in/samuelrizzon",
+    "youtube": "https://youtube.com/@samuelrizzondev",
+    "instagram": "https://instagram.com/samuelrizzondev",
+    "twitter": "https://x.com/samuelrizzondev",
+    "tiktok": "https://tiktok.com/@samuelrizzondev",
+    "totalFollowers": "11K+"
+  },
+  "metadata": {
+    "generator": "aeo.js",
+    "generatorUrl": "https://aeojs.org"
+  }
+}

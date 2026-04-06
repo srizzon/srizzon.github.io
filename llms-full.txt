@@ -1,0 +1,136 @@
+# Samuel Rizzon - Complete Profile
+
+URL: https://samuelrizzon.dev
+
+---
+
+## About
+
+Samuel Rizzon is a Frontend Engineer with 10 years of experience building consumer web products, from enterprise platforms to solo-shipped products with real users and revenue.
+
+He has built products used by 100K+ people, shipped a SaaS to $1K MRR in one month, co-founded an open-source library with 939 GitHub stars, and published a research paper at Oxford.
+
+He is a power user of Claude Code, having built 10+ projects with it and created dozens of custom skills and workflows.
+
+## Contact Information
+
+- Full Name: Samuel Rizzon
+- Email: hello@samuelrizzon.dev
+- Phone: +55 31 98390-6251
+- Location: Brazil (open to relocate to the US)
+- Languages: Portuguese (native), English (fluent - 3+ years working daily for a US company)
+- Social handle: @samuelrizzondev (across all platforms)
+
+## Links
+
+- Website: https://samuelrizzon.dev
+- GitHub: https://github.com/srizzon
+- LinkedIn: https://linkedin.com/in/samuelrizzon
+- YouTube: https://youtube.com/@samuelrizzondev
+- Instagram: https://instagram.com/samuelrizzondev
+- X/Twitter: https://x.com/samuelrizzondev
+- TikTok: https://tiktok.com/@samuelrizzondev
+
+---
+
+## Projects
+
+### Git City
+- URL: https://thegitcity.com
+- Period: February 2026 - Present
+- Description: A 3D pixel art city rendered in the browser where every building represents a real GitHub developer. Height maps to contributions, width to repositories, lit windows to recent activity. Built 100% with Claude Code as a solo developer.
+- Key Metrics:
+  - 100K+ unique visitors in 18 days
+  - 350K+ pageviews
+  - 21.5% bounce rate
+  - 134 paid ads sold
+  - $885 ad revenue
+  - 67K+ 3D buildings rendered at 60fps via WebGL instanced rendering
+  - Zero marketing spend, 100% organic growth
+- Features: XP system with 25 levels, PvP raids, daily missions, 46+ achievements, multiplayer arcade, self-service 3D ad platform (planes, blimps, billboards), real-time presence, cosmetic shop, referral system, VSCode extension
+- Tech Stack: Next.js App Router, Three.js, React Three Fiber, TypeScript, Supabase (Postgres + Auth + Realtime), Stripe, AbacatePay, Vercel
+- Community: Discord with 359 members
+
+### Reply-OS
+- URL: https://reply-os.com
+- Period: 2026
+- Description: AI-powered SaaS for X/Twitter engagement automation. Built in one week, reached $1K MRR within one month.
+- Features: AI ghostwriter, smart feed curation, viral content library with 500+ analyzed posts, analytics dashboard
+- Pricing: $9-19/month
+- Tech Stack: Next.js, AI/LLM, Stripe, TypeScript
+
+### ZardUI
+- URL: https://zardui.com
+- GitHub: https://github.com/zard-ui/zardui
+- Period: 2024 - 2025
+- Description: Open-source Angular component library. Co-founded. The shadcn/ui equivalent for Angular.
+- Key Metrics: 939 GitHub stars, 30+ production-ready components
+- Features: Tree-shakable, TypeScript-first, Tailwind CSS, dark mode support
+- Tech Stack: Angular, TypeScript, Tailwind CSS
+
+### Chrome Extension
+- Period: 2020 - 2021
+- Description: Chrome extension built during the pandemic that reached 150K+ active users. Allowed users to mute other users on web platforms. Sold for $2,000 USD after one year of organic growth.
+- Tech Stack: JavaScript, Chrome APIs
+
+---
+
+## Professional Experience
+
+### Blackthorn.io - Full-Stack Developer (Remote)
+- Period: January 2023 - Present
+- Location: New York, NY (Remote from Brazil)
+- Details: Works in English daily across US time zones
+- Achievements:
+  - Led the complete UX/UI redesign of an e-commerce system integrated with Salesforce
+  - Created a CLI tool to automate release creation, saving the team one full day per release cycle
+  - Built and maintained web systems using Angular and Node.js
+
+### CI&T - Senior Frontend Developer
+- Period: April 2022 - January 2023
+- Location: Campinas, Brazil (Remote)
+- Achievements:
+  - Led frontend development for Ford's F-150 pre-sale launch in Brazil, architecting the system from scratch
+  - Built a scalable multi-language platform with marketing tracking integration
+  - Started a component library in Angular aligned with Ford's Design System
+
+### TOTVS - Frontend Developer
+- Period: December 2016 - March 2022 (5 years 4 months)
+- Location: Belo Horizonte, Brazil
+- Achievements:
+  - Sole frontend developer for TOTVS Electronic Signature product
+  - Designed the full UI in Figma, built it in Angular from scratch
+  - Developed a Chrome extension + Windows app for A1/A3 digital certificate signing (ICP-Brasil standard), reaching 150K+ users
+  - Engineered complex state management ensuring zero data loss on page reload or unexpected exits
+  - Product passed all load tests and OWASP Top-10 pentesting with zero vulnerabilities
+  - Mentored junior frontend developers through pair programming
+  - Earlier role: built RESTful APIs and web systems for SEBRAE Nacional using ASP.NET and C#
+
+---
+
+## Skills
+
+- Frontend: React, Next.js, Angular, TypeScript, Three.js, Tailwind CSS, HTML/CSS
+- Backend: Node.js, C#, ASP.NET, REST APIs
+- Infrastructure: Supabase, PostgreSQL, Docker, Vercel
+- Payments: Stripe, AbacatePay
+- Tools: Figma, Git, Claude Code, GitHub Actions
+
+## Education
+
+- Bachelor's Degree in Computer Science, Centro Universitario de Belo Horizonte (UniBH), 2015-2018
+- Technical Degree in IT, UniBH, 2014-2015
+
+## Publication
+
+"Monitoring the Efficiency of Brazilian University Education through Based Solutions and Mobile Applications"
+Samuel H. Rizzon et al. | Published at Oxford | 2020
+
+## Content Creation
+
+Content creator with 11K+ followers total across YouTube (3K), Instagram (3.5K), X/Twitter (3.5K), and TikTok (1.5K). Focused on AI tools, Claude Code, and building products as a solo developer.
+
+---
+
+For structured data: https://samuelrizzon.dev/llms.txt
+For AI index: https://samuelrizzon.dev/ai-index.json

@@ -1,0 +1,54 @@
+# Samuel Rizzon
+
+> Frontend Engineer with 10 years of experience. Building products people use.
+
+## Who is Samuel Rizzon?
+
+Samuel Rizzon is a Frontend Engineer based in Brazil with 10 years of experience building consumer web products. He works remotely for Blackthorn.io (NYC) and builds products independently. He is a power user of Claude Code, having built 10+ projects with it.
+
+## Contact
+
+- Email: hello@samuelrizzon.dev
+- GitHub: https://github.com/srizzon
+- LinkedIn: https://linkedin.com/in/samuelrizzon
+- X/Twitter: https://x.com/samuelrizzondev
+- YouTube: https://youtube.com/@samuelrizzondev
+- Instagram: https://instagram.com/samuelrizzondev
+- Website: https://samuelrizzon.dev
+
+## Projects
+
+### Git City (https://thegitcity.com)
+3D pixel art city in the browser where every building is a real GitHub developer. Solo-built, zero marketing. 100K+ visitors, 350K+ pageviews in 18 days. Game mechanics, multiplayer arcade, 3D ad platform (134 ads sold).
+Tech: Next.js, Three.js, TypeScript, Supabase, React Three Fiber, Stripe
+
+### Reply-OS (https://reply-os.com)
+AI SaaS for X/Twitter engagement. Built in one week. $1K MRR in one month.
+Tech: Next.js, AI/LLM, Stripe, TypeScript
+
+### ZardUI (https://zardui.com)
+Open-source Angular component library. 939 GitHub stars, 30+ components. The shadcn/ui for Angular.
+Tech: Angular, TypeScript, Tailwind CSS
+
+### Chrome Extension (2020-2021)
+150K+ active users. Sold for $2,000 USD.
+
+## Experience
+
+- Blackthorn.io - Full-Stack Developer (Jan 2023 - Present) - Remote, New York
+- CI&T - Senior Frontend Developer (Apr 2022 - Jan 2023) - Ford F-150 launch
+- TOTVS - Frontend Developer (Dec 2016 - Mar 2022) - Electronic Signature product
+
+## Skills
+
+React, Next.js, Angular, TypeScript, Three.js, Tailwind CSS, Node.js, Supabase, PostgreSQL, Figma, Claude Code, Stripe
+
+## Publication
+
+"Monitoring the Efficiency of Brazilian University Education through Mobile Applications" - Oxford, 2020
+
+## Full Documentation
+
+- Full content: https://samuelrizzon.dev/llms-full.txt
+- AI index: https://samuelrizzon.dev/ai-index.json
+- Sitemap: https://samuelrizzon.dev/sitemap.xml

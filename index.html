@@ -842,6 +842,8 @@
       .tag { font-size: 0.55rem; padding: 0.15rem 0.4rem; }
     }
   </style>
+  <!-- Himetrica Analytics -->
+  <script defer src="https://cdn.himetrica.com/tracker.js" data-api-key="hm_319264acffe9a83598fdbd79cd0ac105a883fd76f9927fbb"></script>
 </head>
 <body>
 
@@ -1242,6 +1244,79 @@
 
     // Initialize Lucide icons
     lucide.createIcons();
+
+    // --- Himetrica Analytics Events ---
+    function hmTrack(event, props) {
+      if (window.himetrica && window.himetrica.track) {
+        window.himetrica.track(event, props);
+      }
+    }
+
+    // 1. Social card clicks (header row)
+    document.querySelectorAll('.social-card').forEach(function(card) {
+      card.addEventListener('click', function() {
+        var name = card.querySelector('.social-name').textContent.trim();
+        hmTrack('social_click', { platform: name.toLowerCase(), section: 'header' });
+      });
+    });
+
+    // 2. Project opens — patch openProject
+    var _origOpenProject = openProject;
+    openProject = function(id) {
+      hmTrack('project_open', { project: id });
+      _origOpenProject(id);
+    };
+
+    // 3. Project dialog "Visit project" link
+    document.getElementById('dialogLink').addEventListener('click', function() {
+      var title = document.getElementById('dialogTitle').textContent;
+      hmTrack('project_visit', { project: title, url: this.href });
+    });
+
+    // 4. Creator card clicks
+    document.querySelectorAll('.creator-card').forEach(function(card) {
+      card.addEventListener('click', function() {
+        var label = card.querySelector('.creator-label').textContent.trim();
+        var number = card.querySelector('.creator-number').textContent.trim();
+        var url = card.href;
+        var platform = url.includes('youtube') ? 'youtube' :
+                       url.includes('instagram') ? 'instagram' :
+                       url.includes('x.com') ? 'x' :
+                       url.includes('tiktok') ? 'tiktok' : 'unknown';
+        hmTrack('creator_click', { platform: platform, followers: number });
+      });
+    });
+
+    // 5. Contact card clicks
+    document.querySelectorAll('.contact-card').forEach(function(card) {
+      card.addEventListener('click', function() {
+        var label = card.querySelector('.contact-label').textContent.trim();
+        hmTrack('contact_click', { method: label.toLowerCase() });
+      });
+    });
+
+    // 6. Language switch — patch setLang
+    var _origSetLang = setLang;
+    setLang = function(lang) {
+      hmTrack('language_switch', { language: lang });
+      _origSetLang(lang);
+    };
+
+    // 7. Section views (Intersection Observer)
+    var trackedSections = {};
+    var sectionObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting && !trackedSections[entry.target.id]) {
+          trackedSections[entry.target.id] = true;
+          hmTrack('section_view', { section: entry.target.id });
+        }
+      });
+    }, { threshold: 0.3 });
+
+    ['projects', 'experience', 'contact'].forEach(function(id) {
+      var el = document.getElementById(id);
+      if (el) sectionObserver.observe(el);
+    });
   </script>
 </body>
 </html>

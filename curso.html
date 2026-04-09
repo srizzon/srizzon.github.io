@@ -234,7 +234,7 @@
     .hero-handle {
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.72rem;
-      color: var(--text-tertiary);
+      color: var(--text-secondary);
     }
 
     /* Hero CTA row */
@@ -528,7 +528,7 @@
       gap: 0.4rem;
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.7rem;
-      color: var(--text-tertiary);
+      color: var(--text-secondary);
       text-decoration: none;
       padding: 0.25rem 0.55rem;
       background: var(--surface-2);
@@ -538,7 +538,7 @@
     }
 
     .instructor-social:hover {
-      color: var(--text-secondary);
+      color: var(--text);
       border-color: var(--border-hover);
     }
 
@@ -574,7 +574,7 @@
     .pricing-original {
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.72rem;
-      color: var(--text-tertiary);
+      color: var(--text-secondary);
       text-decoration: line-through;
       margin-bottom: 1.5rem;
     }
@@ -709,7 +709,7 @@
     .testimonial-author {
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.7rem;
-      color: var(--text-tertiary);
+      color: var(--text-secondary);
     }
 
     /* Video placeholder */
@@ -778,7 +778,7 @@
 
     <!-- Hero -->
     <div class="hero">
-      <img src="./profile.jpeg" alt="Samuel Rizzon" class="hero-avatar">
+      <img src="./profile.jpeg" alt="Samuel Rizzon" width="80" height="80" loading="lazy" class="hero-avatar">
       <div class="hero-info">
         <div class="hero-badge">
           <span class="tag tag--green"><span class="status-dot"></span> Pré-venda aberta</span>
@@ -867,7 +867,7 @@
     <!-- Instructor -->
     <h2 class="section-title">Quem ensina</h2>
     <div class="instructor">
-      <img src="./profile.jpeg" alt="Samuel Rizzon">
+      <img src="./profile.jpeg" alt="Samuel Rizzon" width="80" height="80" loading="lazy">
       <div class="instructor-info">
         <a href="https://samuelrizzon.dev" target="_blank" class="instructor-name" style="text-decoration:none;color:inherit;">Samuel Rizzon</a>
         <div class="instructor-role">Full-Stack Developer, 10 anos</div>
@@ -1031,7 +1031,7 @@
     <div class="final-cta">
       <h2>Entra agora e ajuda a construir o curso comigo.</h2>
       <p>Pré-venda com acesso vitalício, comunidade e bônus. R$97 agora, R$297 no lançamento.</p>
-      <a href="https://pay.kiwify.com.br/8Vk2efc" class="cta-btn">Garantir pré-venda · R$97</a>
+      <a href="https://pay.kiwify.com.br/8Vk2efc" class="cta-btn">Entrar na pré-venda · R$97</a>
     </div>
 
     <!-- Footer -->
@@ -1045,8 +1045,14 @@
   <script defer src="https://cdn.himetrica.com/tracker.js" data-api-key="hm_319264acffe9a83598fdbd79cd0ac105a883fd76f9927fbb"></script>
 
   <script>
-    // Initialize Lucide icons
-    lucide.createIcons();
+    // Initialize Lucide icons when loaded
+    document.addEventListener('DOMContentLoaded', function() {
+      if (window.lucide) lucide.createIcons();
+    });
+    // Fallback if defer loads after DOMContentLoaded
+    window.addEventListener('load', function() {
+      if (window.lucide) lucide.createIcons();
+    });
 
     // --- Himetrica Analytics Events ---
     function hmTrack(event, props) {

@@ -50,6 +50,13 @@
   </script>
 
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%230a0a0a' width='100' height='100' rx='20'/><text x='50' y='75' text-anchor='middle' font-family='monospace' font-weight='700' font-size='80' fill='%23DE7356'>/</text></svg>">
+
+  <!-- Fonts (preconnect + preload instead of render-blocking @import) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap"></noscript>
+
   <!-- Meta Pixel Code -->
   <script>
   !function(f,b,e,v,n,t,s)
@@ -67,10 +74,8 @@
   src="https://www.facebook.com/tr?id=1630238864850445&ev=PageView&noscript=1"
   /></noscript>
   <!-- End Meta Pixel Code -->
-  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
-
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     :root {
@@ -81,7 +86,7 @@
       --border-hover: #404040;
       --text: #fafafa;
       --text-secondary: #a1a1aa;
-      --text-tertiary: #52525b;
+      --text-tertiary: #6b6b76;
       --accent: #DE7356;
       --green: #22c55e;
     }
@@ -410,7 +415,7 @@
       height: 20px;
     }
 
-    .include-card h4 {
+    .include-card h3 {
       font-size: 0.85rem;
       font-weight: 600;
       margin-bottom: 0.25rem;
@@ -452,7 +457,7 @@
       height: 24px;
     }
 
-    .bonus-content h4 {
+    .bonus-content h3 {
       font-size: 0.9rem;
       font-weight: 600;
       margin-bottom: 0.3rem;
@@ -766,7 +771,7 @@
 </head>
 <body>
 
-  <div class="page">
+  <main class="page">
 
     <!-- Logo -->
     <div class="logo"><span class="s">/</span><span class="t">deploy</span></div>
@@ -816,22 +821,22 @@
     <div class="includes">
       <div class="include-card">
         <div class="include-card-icon"><i data-lucide="play"></i></div>
-        <h4>Aulas em vídeo</h4>
+        <h3>Aulas em vídeo</h3>
         <p>Gravadas, práticas, sem enrolação.</p>
       </div>
       <div class="include-card">
         <div class="include-card-icon"><i data-lucide="message-circle"></i></div>
-        <h4>Comunidade no WhatsApp</h4>
+        <h3>Comunidade no WhatsApp</h3>
         <p>Grupo exclusivo pra tirar dúvidas e trocar ideias.</p>
       </div>
       <div class="include-card">
         <div class="include-card-icon"><i data-lucide="code"></i></div>
-        <h4>Projeto open source</h4>
+        <h3>Projeto open source</h3>
         <p>O código do projeto que construímos juntos. Acesso total.</p>
       </div>
       <div class="include-card">
         <div class="include-card-icon"><i data-lucide="refresh-cw"></i></div>
-        <h4>Atualizações futuras</h4>
+        <h3>Atualizações futuras</h3>
         <p>Novas aulas e módulos bônus quando eu lançar.</p>
       </div>
     </div>
@@ -842,7 +847,7 @@
       <div class="bonus-content">
         <div class="bonus-icon"><i data-lucide="terminal"></i></div>
         <div>
-          <h4>Minhas skills, agentes e plugins</h4>
+          <h3>Minhas skills, agentes e plugins</h3>
           <p>Todas as skills, agentes e plugins que eu uso no meu dia a dia com Claude Code. Prontos pra usar.</p>
         </div>
       </div>
@@ -853,7 +858,7 @@
       <div class="bonus-content">
         <div class="bonus-icon"><i data-lucide="book-open"></i></div>
         <div>
-          <h4>E-book: SaaS Vulnerável</h4>
+          <h3>E-book: SaaS Vulnerável</h3>
           <p>O que a IA não te contou sobre segurança no Supabase. Aprenda a implementar Row Level Security com exemplos práticos de Single-Tenant, Multi-Tenant e Marketplace.</p>
         </div>
       </div>
@@ -1034,7 +1039,7 @@
       <span style="color:var(--accent);font-weight:700;">/</span>deploy · <a href="https://samuelrizzon.dev" target="_blank">Samuel Rizzon</a>
     </div>
 
-  </div>
+  </main>
 
   <!-- Himetrica Analytics -->
   <script defer src="https://cdn.himetrica.com/tracker.js" data-api-key="hm_319264acffe9a83598fdbd79cd0ac105a883fd76f9927fbb"></script>

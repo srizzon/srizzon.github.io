@@ -47,6 +47,13 @@ React, Next.js, Angular, TypeScript, Three.js, Tailwind CSS, Node.js, Supabase, 
 
 "Monitoring the Efficiency of Brazilian University Education through Mobile Applications" - Oxford, 2020
 
+## Course
+
+### Claude do Zero ao Deploy (https://samuelrizzon.dev/curso)
+Pre-sale course teaching Claude Code from setup to deploying a real product. Covers the Claude ecosystem, Samuel's personal workflow, and building a project from scratch with Next.js, Supabase, and Vercel.
+Price: R$97 (pre-sale), R$297+ at launch.
+Checkout: https://pay.kiwify.com.br/8Vk2efc
+
 ## Full Documentation
 
 - Full content: https://samuelrizzon.dev/llms-full.txt

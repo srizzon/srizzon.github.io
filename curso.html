@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Claude do Zero ao Deploy — por Samuel Rizzon</title>
+  <meta name="description" content="Aprenda o setup, domine o workflow, construa um projeto real com Claude Code. Curso prático por Samuel Rizzon, criador da Git City.">
+  <meta name="author" content="Samuel Rizzon">
+  <meta name="keywords" content="Claude Code, curso, tutorial, Claude Code curso, Claude AI, deploy, Supabase, Next.js, Samuel Rizzon, Git City, pré-venda">
+  <link rel="canonical" href="https://samuelrizzon.dev/curso">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://samuelrizzon.dev/curso">
+  <meta property="og:title" content="Claude do Zero ao Deploy — por Samuel Rizzon">
+  <meta property="og:description" content="Aprenda o setup, domine o workflow, construa um projeto real com Claude Code.">
+  <meta property="og:image" content="https://samuelrizzon.dev/og-curso.png">
+  <meta property="og:locale" content="pt_BR">
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@samuelrizzondev">
+  <meta name="twitter:creator" content="@samuelrizzondev">
+  <meta name="twitter:title" content="Claude do Zero ao Deploy — por Samuel Rizzon">
+  <meta name="twitter:description" content="Aprenda o setup, domine o workflow, construa um projeto real com Claude Code.">
+  <meta name="twitter:image" content="https://samuelrizzon.dev/og-curso.png">
+
+  <!-- Structured Data / JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    "name": "Claude do Zero ao Deploy",
+    "description": "Aprenda o setup, domine o workflow, construa um projeto real com Claude Code.",
+    "provider": {
+      "@type": "Person",
+      "name": "Samuel Rizzon",
+      "url": "https://samuelrizzon.dev"
+    },
+    "url": "https://samuelrizzon.dev/curso",
+    "inLanguage": "pt-BR",
+    "offers": {
+      "@type": "Offer",
+      "price": "97",
+      "priceCurrency": "BRL",
+      "availability": "https://schema.org/PreOrder",
+      "url": "https://pay.kiwify.com.br/8Vk2efc"
+    }
+  }
+  </script>
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%230a0a0a' width='100' height='100' rx='20'/><text x='50' y='75' text-anchor='middle' font-family='monospace' font-weight='700' font-size='80' fill='%23DE7356'>/</text></svg>">
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1630238864850445');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=1630238864850445&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #0a0a0a;
+      --surface: #141414;
+      --surface-2: #1a1a1a;
+      --border: #262626;
+      --border-hover: #404040;
+      --text: #fafafa;
+      --text-secondary: #a1a1aa;
+      --text-tertiary: #52525b;
+      --accent: #DE7356;
+      --green: #22c55e;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      padding: 3rem 0;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    .page {
+      width: 100%;
+      max-width: 880px;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Tags */
+    .tag {
+      font-size: 0.7rem;
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--text-tertiary);
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+    }
+
+    .tag--accent {
+      color: var(--accent);
+      background: rgba(222, 115, 86, 0.08);
+      border-color: rgba(222, 115, 86, 0.15);
+    }
+
+    .tag--green {
+      color: var(--green);
+      background: rgba(34,197,94,0.1);
+      border-color: rgba(34,197,94,0.2);
+    }
+
+    /* Section titles */
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-top: 1.5rem;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.02em;
+    }
+
+    /* Logo */
+    .logo {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.4rem;
+      font-weight: 700;
+    }
+
+    .logo .s { color: var(--accent); }
+    .logo .t { color: var(--text); }
+
+    /* Hero */
+    .hero {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.5rem 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .hero-avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--border);
+      flex-shrink: 0;
+    }
+
+    .hero-info {
+      flex: 1;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--green);
+      border-radius: 50%;
+      display: inline-block;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    .hero h1 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin-bottom: 0.2rem;
+    }
+
+    .hero h1 span {
+      color: var(--accent);
+    }
+
+    .hero-subtitle {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem;
+      color: var(--text-secondary);
+      margin-bottom: 0.2rem;
+    }
+
+    .hero-handle {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--text-tertiary);
+    }
+
+    /* Hero CTA row */
+    .hero-cta {
+      display: flex;
+      gap: 0.75rem;
+      align-items: center;
+    }
+
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--text);
+      color: var(--bg);
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 0.65rem 1.5rem;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: opacity 0.15s;
+      border: none;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .cta-btn:hover {
+      opacity: 0.85;
+    }
+
+    .hero-note {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      color: var(--text-tertiary);
+    }
+
+    /* Problem cards */
+    .problems {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+    }
+
+    .problem-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      transition: all 0.2s;
+    }
+
+    .problem-card:hover {
+      border-color: var(--border-hover);
+    }
+
+    .problem-card h3 {
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 0.35rem;
+    }
+
+    .problem-card p {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      line-height: 1.55;
+    }
+
+    /* Module cards */
+    .module {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+
+    .module:hover {
+      border-color: var(--border-hover);
+    }
+
+    .module-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .module-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      flex: 1;
+    }
+
+    .module-count {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--text-tertiary);
+    }
+
+    .module-chevron {
+      color: var(--text-tertiary);
+      font-size: 0.8rem;
+      transition: transform 0.2s;
+    }
+
+    .module.open .module-chevron {
+      transform: rotate(90deg);
+    }
+
+    .module-lessons {
+      list-style: none;
+      display: none;
+      margin-top: 1rem;
+    }
+
+    .module.open .module-lessons {
+      display: block;
+    }
+
+    .module-lessons li {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      padding: 0.45rem 0;
+      padding-left: 1rem;
+      position: relative;
+      line-height: 1.45;
+      border-top: 1px solid var(--border);
+    }
+
+    .module-lessons li:first-child {
+      border-top: none;
+    }
+
+    .module-lessons li::before {
+      content: '-';
+      position: absolute;
+      left: 0;
+      color: var(--text-tertiary);
+    }
+
+    /* Modules list */
+    .modules {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    /* Includes grid */
+    .includes {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+    }
+
+    .include-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      transition: all 0.2s;
+    }
+
+    .include-card:hover {
+      border-color: var(--border-hover);
+    }
+
+    .include-card-icon {
+      color: var(--text-tertiary);
+      margin-bottom: 0.65rem;
+    }
+
+    .include-card-icon svg,
+    .include-card-icon [data-lucide] {
+      width: 20px;
+      height: 20px;
+    }
+
+    .include-card h4 {
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .include-card p {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    /* Bonus */
+    .bonus {
+      background: var(--surface);
+      border: 1px solid var(--accent);
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+    }
+
+    .bonus-badge {
+      margin-bottom: 0.75rem;
+    }
+
+    .bonus-content {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .bonus-icon {
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .bonus-icon svg,
+    .bonus-icon [data-lucide] {
+      width: 24px;
+      height: 24px;
+    }
+
+    .bonus-content h4 {
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+
+    .bonus-content p {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      line-height: 1.55;
+    }
+
+    /* Instructor */
+    .instructor {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.5rem 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .instructor img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--border);
+      flex-shrink: 0;
+    }
+
+    .instructor-info {
+      flex: 1;
+    }
+
+    .instructor-name {
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.15rem;
+    }
+
+    .instructor-role {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem;
+      color: var(--text-secondary);
+      margin-bottom: 0.65rem;
+    }
+
+    .instructor-bio {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      line-height: 1.55;
+      margin-bottom: 0.85rem;
+    }
+
+    .instructor-socials {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .instructor-social {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--text-tertiary);
+      text-decoration: none;
+      padding: 0.25rem 0.55rem;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      transition: all 0.15s;
+    }
+
+    .instructor-social:hover {
+      color: var(--text-secondary);
+      border-color: var(--border-hover);
+    }
+
+    .instructor-social svg {
+      width: 12px;
+      height: 12px;
+    }
+
+    /* Pricing */
+    .pricing {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .pricing-amount {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 2.5rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin: 0.75rem 0 0.25rem;
+    }
+
+    .pricing-amount .currency {
+      font-size: 1.2rem;
+      font-weight: 600;
+      vertical-align: top;
+      line-height: 2.2;
+    }
+
+    .pricing-original {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--text-tertiary);
+      text-decoration: line-through;
+      margin-bottom: 1.5rem;
+    }
+
+    .pricing-features {
+      list-style: none;
+      text-align: left;
+      margin-bottom: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .pricing-features li {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      padding-left: 1.25rem;
+      position: relative;
+      line-height: 1.45;
+    }
+
+    .pricing-features li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.4rem;
+      width: 6px;
+      height: 6px;
+      background: var(--green);
+      border-radius: 50%;
+    }
+
+    .pricing .cta-btn {
+      width: 100%;
+      justify-content: center;
+      padding: 0.75rem 1.5rem;
+    }
+
+    /* FAQ */
+    .faq {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 0;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-question {
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .faq-toggle {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1rem;
+      color: var(--text-tertiary);
+      transition: transform 0.2s;
+      flex-shrink: 0;
+    }
+
+    .faq-item.open .faq-toggle {
+      transform: rotate(45deg);
+    }
+
+    .faq-answer {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+    }
+
+    .faq-item.open .faq-answer {
+      max-height: 200px;
+      padding-top: 0.75rem;
+    }
+
+    /* Final CTA */
+    .final-cta {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2.5rem 2rem;
+      text-align: center;
+    }
+
+    .final-cta h2 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+    }
+
+    .final-cta p {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem;
+      color: var(--text-secondary);
+      margin-bottom: 1.25rem;
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 2rem 0 0.5rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+    }
+
+    .footer a {
+      color: var(--text-secondary);
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      color: var(--text);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      body { padding: 0; }
+      .page { gap: 0.6rem; }
+      .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 1.5rem 1.25rem;
+      }
+      .hero h1 { font-size: 1.25rem; }
+      .hero-cta { flex-direction: column; align-items: stretch; text-align: center; }
+      .hero-cta .cta-btn { justify-content: center; }
+      .hero-cta .tag { text-align: center; }
+      .problems { grid-template-columns: 1fr; }
+      .includes { grid-template-columns: 1fr; }
+      .instructor {
+        flex-direction: column;
+        text-align: center;
+        padding: 1.5rem 1.25rem;
+      }
+      .pricing { padding: 1.5rem 1.25rem; }
+      .pricing-amount { font-size: 2rem; }
+      .final-cta { padding: 2rem 1.25rem; }
+      .section-title { font-size: 1rem; margin-top: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="page">
+
+    <!-- Logo -->
+    <div class="logo"><span class="s">/</span><span class="t">deploy</span></div>
+
+    <!-- Hero -->
+    <div class="hero">
+      <img src="./profile.jpeg" alt="Samuel Rizzon" class="hero-avatar">
+      <div class="hero-info">
+        <div class="hero-badge">
+          <span class="tag tag--green"><span class="status-dot"></span> Pré-venda aberta</span>
+        </div>
+        <h1><span>Claude</span> do Zero ao Deploy</h1>
+        <div class="hero-subtitle">7+ projetos construídos com Claude Code nos últimos 5 meses. Agora eu ensino como.</div>
+        <div class="hero-handle">por @samuelrizzondev</div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="hero-cta">
+      <a href="#pricing" class="cta-btn">Garantir pré-venda · R$97</a>
+      <span class="tag tag--accent">Preço sobe no lançamento</span>
+    </div>
+
+    <!-- Problems -->
+    <h2 class="section-title">Você provavelmente está passando por isso</h2>
+    <div class="problems">
+      <div class="problem-card">
+        <h3>Instalou, mas não sabe usar direito</h3>
+        <p>Fez o setup, mandou uns prompts, mas sente que está usando 10% do que a ferramenta oferece.</p>
+      </div>
+      <div class="problem-card">
+        <h3>Gasta mais do que deveria</h3>
+        <p>Não sabe quando usar Opus, Sonnet ou Haiku. O limite acaba no meio do dia e você não entende por quê.</p>
+      </div>
+      <div class="problem-card">
+        <h3>Não consegue tirar a ideia do papel</h3>
+        <p>Quer construir algo, mas não sabe como sair do prompt e chegar num produto no ar.</p>
+      </div>
+      <div class="problem-card">
+        <h3>Não sabe o que revisar</h3>
+        <p>Aceita tudo ou questiona tudo. Sem um processo, as duas opções travam.</p>
+      </div>
+    </div>
+
+    <!-- Includes -->
+    <h2 class="section-title">O que você recebe</h2>
+    <div class="includes">
+      <div class="include-card">
+        <div class="include-card-icon"><i data-lucide="play"></i></div>
+        <h4>Aulas em vídeo</h4>
+        <p>Gravadas, práticas, sem enrolação.</p>
+      </div>
+      <div class="include-card">
+        <div class="include-card-icon"><i data-lucide="message-circle"></i></div>
+        <h4>Comunidade no WhatsApp</h4>
+        <p>Grupo exclusivo pra tirar dúvidas e trocar ideias.</p>
+      </div>
+      <div class="include-card">
+        <div class="include-card-icon"><i data-lucide="code"></i></div>
+        <h4>Projeto open source</h4>
+        <p>O código do projeto que construímos juntos. Acesso total.</p>
+      </div>
+      <div class="include-card">
+        <div class="include-card-icon"><i data-lucide="refresh-cw"></i></div>
+        <h4>Atualizações futuras</h4>
+        <p>Novas aulas e módulos bônus quando eu lançar.</p>
+      </div>
+    </div>
+
+    <!-- Bonus -->
+    <div class="bonus">
+      <div class="bonus-badge"><span class="tag tag--accent">Bônus</span></div>
+      <div class="bonus-content">
+        <div class="bonus-icon"><i data-lucide="terminal"></i></div>
+        <div>
+          <h4>Minhas skills, agentes e plugins</h4>
+          <p>Todas as skills, agentes e plugins que eu uso no meu dia a dia com Claude Code. Prontos pra usar.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="bonus">
+      <div class="bonus-badge"><span class="tag tag--accent">Bônus</span></div>
+      <div class="bonus-content">
+        <div class="bonus-icon"><i data-lucide="book-open"></i></div>
+        <div>
+          <h4>E-book: SaaS Vulnerável</h4>
+          <p>O que a IA não te contou sobre segurança no Supabase. Aprenda a implementar Row Level Security com exemplos práticos de Single-Tenant, Multi-Tenant e Marketplace.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Instructor -->
+    <h2 class="section-title">Quem ensina</h2>
+    <div class="instructor">
+      <img src="./profile.jpeg" alt="Samuel Rizzon">
+      <div class="instructor-info">
+        <a href="https://samuelrizzon.dev" target="_blank" class="instructor-name" style="text-decoration:none;color:inherit;">Samuel Rizzon</a>
+        <div class="instructor-role">Full-Stack Developer, 10 anos</div>
+        <p class="instructor-bio">Dev sênior há 10 anos. Nos últimos 5 meses, construí 7+ projetos com Claude Code, incluindo a Git City (100K+ visitantes) e a Reply-OS (R$1K MRR). Trabalho remoto pra fora há 3+ anos.</p>
+        <div class="instructor-socials">
+          <a href="https://x.com/samuelrizzondev" target="_blank" class="instructor-social">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            3.9K
+          </a>
+          <a href="https://youtube.com/@samuelrizzondev" target="_blank" class="instructor-social">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            3K
+          </a>
+          <a href="https://instagram.com/samuelrizzondev" target="_blank" class="instructor-social">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+            3.9K
+          </a>
+          <a href="https://github.com/srizzon" target="_blank" class="instructor-social">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modules -->
+    <h2 class="section-title">Grade do curso</h2>
+    <p style="font-family:'JetBrains Mono',monospace;font-size:0.8rem;color:var(--text-secondary);margin-bottom:0.75rem;">O conteúdo pode mudar conforme o curso for sendo construído. Quem comprar na pré-venda ajuda a moldar o resultado final.</p>
+    <div class="modules">
+      <div class="module" onclick="this.classList.toggle('open')">
+        <div class="module-header">
+          <span class="tag tag--accent">01</span>
+          <span class="module-title">Setup e Fundamentos</span>
+          <span class="module-chevron">›</span>
+        </div>
+        <ul class="module-lessons">
+          <li>O que é o Claude e as formas de usar</li>
+          <li>Assinatura vs API</li>
+          <li>Modelos: Opus, Sonnet, Haiku</li>
+          <li>Instalando e configurando o Claude Code</li>
+          <li>Primeiros comandos e atalhos</li>
+          <li>CLAUDE.md e como eu configuro meus projetos</li>
+        </ul>
+      </div>
+
+      <div class="module" onclick="this.classList.toggle('open')">
+        <div class="module-header">
+          <span class="tag tag--accent">02</span>
+          <span class="module-title">Meu Workflow</span>
+          <span class="module-chevron">›</span>
+        </div>
+        <ul class="module-lessons">
+          <li>Como eu falo com o Claude</li>
+          <li>Brainstorming antes de codar</li>
+          <li>Plan Mode</li>
+          <li>Múltiplos terminais</li>
+          <li>Imagens, pesquisa, pensando junto</li>
+          <li>Revisando tudo</li>
+          <li>Economizando tokens</li>
+          <li>Skills, Hooks e MCP</li>
+        </ul>
+      </div>
+
+      <div class="module" onclick="this.classList.toggle('open')">
+        <div class="module-header">
+          <span class="tag tag--accent">03</span>
+          <span class="module-title">Do Zero ao Deploy</span>
+          <span class="module-chevron">›</span>
+        </div>
+        <ul class="module-lessons">
+          <li>Escolhendo o que construir</li>
+          <li>Setup do projeto</li>
+          <li>Banco de dados com Supabase</li>
+          <li>Autenticação</li>
+          <li>Features principais</li>
+          <li>Pagamento</li>
+          <li>Deploy</li>
+          <li>Manutenção</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Pricing -->
+    <h2 class="section-title" id="pricing">Pré-venda</h2>
+    <div class="pricing">
+      <span class="tag tag--green">Pré-venda</span>
+      <div class="pricing-amount"><span class="currency">R$</span>97</div>
+      <div class="pricing-original">Preço de lançamento a partir de R$297</div>
+      <ul class="pricing-features">
+        <li>Acesso a todas as aulas conforme forem lançadas</li>
+        <li>Comunidade exclusiva no WhatsApp</li>
+        <li>Código do projeto open source</li>
+        <li>Todos os módulos bônus futuros</li>
+        <li>Acesso vitalício</li>
+        <li>Minhas skills, agentes e plugins do Claude Code</li>
+        <li>Bônus: e-book SaaS Vulnerável (segurança no Supabase)</li>
+      </ul>
+      <a href="https://pay.kiwify.com.br/8Vk2efc" class="cta-btn">Garantir minha vaga · R$97</a>
+    </div>
+
+    <!-- FAQ -->
+    <h2 class="section-title">Perguntas frequentes</h2>
+    <div class="faq">
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-question">
+          Quando as aulas serão liberadas?
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-answer">As aulas serão gravadas e liberadas progressivamente. Quem comprar na pré-venda entra no grupo do WhatsApp e acompanha o processo de perto.</div>
+      </div>
+
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-question">
+          Preciso saber programar?
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-answer">Não. Com o Claude Code, você não precisa saber programar pra construir coisas. O curso não vai ensinar conceitos básicos de programação, mas se tiver demanda, posso criar um módulo bônus pra isso.</div>
+      </div>
+
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-question">
+          E se eu não gostar?
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-answer">Você tem 7 dias de garantia após o lançamento das primeiras aulas. Se não fizer sentido pra você, devolvemos 100% do valor.</div>
+      </div>
+
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-question">
+          Preciso pagar o Claude Code?
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-answer">Sim. Pra acompanhar o curso, você precisa de uma assinatura do Claude (Pro ou Max) ou usar via API. Eu explico as opções no módulo 1.</div>
+      </div>
+
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-question">
+          O que eu recebo agora ao comprar?
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-answer">Acesso imediato ao grupo exclusivo do WhatsApp. As aulas serão liberadas conforme forem gravadas. Você acompanha o processo e dá feedback direto.</div>
+      </div>
+
+      <div class="faq-item" onclick="this.classList.toggle('open')">
+        <div class="faq-question">
+          O preço vai subir mesmo?
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-answer">Sim. Quando o curso estiver completo, o preço mínimo será R$297. Quem comprar agora trava R$97 pra sempre.</div>
+      </div>
+    </div>
+
+    <!-- Final CTA -->
+    <div class="final-cta">
+      <h2>R$97 agora. R$297 depois.</h2>
+      <p>Pré-venda com acesso vitalício, comunidade e e-book de bônus.</p>
+      <a href="https://pay.kiwify.com.br/8Vk2efc" class="cta-btn">Garantir pré-venda · R$97</a>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <span style="color:var(--accent);font-weight:700;">/</span>deploy · <a href="https://samuelrizzon.dev" target="_blank">Samuel Rizzon</a>
+    </div>
+
+  </div>
+
+  <!-- Himetrica Analytics -->
+  <script defer src="https://cdn.himetrica.com/tracker.js" data-api-key="hm_319264acffe9a83598fdbd79cd0ac105a883fd76f9927fbb"></script>
+
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // --- Himetrica Analytics Events ---
+    function hmTrack(event, props) {
+      if (window.himetrica && window.himetrica.track) {
+        window.himetrica.track(event, props);
+      }
+    }
+
+    // CTA button clicks
+    document.querySelectorAll('.cta-btn').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var isCheckout = btn.href && btn.href.includes('kiwify');
+        hmTrack('cta_click', {
+          text: btn.textContent.trim(),
+          type: isCheckout ? 'checkout' : 'scroll_to_pricing',
+          page: 'curso'
+        });
+      });
+    });
+
+    // Module expand/collapse
+    document.querySelectorAll('.module').forEach(function(mod) {
+      mod.addEventListener('click', function() {
+        var title = mod.querySelector('.module-title').textContent.trim();
+        hmTrack('module_toggle', { module: title, page: 'curso' });
+      });
+    });
+
+    // FAQ expand/collapse
+    document.querySelectorAll('.faq-item').forEach(function(item) {
+      item.addEventListener('click', function() {
+        var question = item.querySelector('.faq-question').textContent.trim().replace('+', '').trim();
+        hmTrack('faq_toggle', { question: question, page: 'curso' });
+      });
+    });
+
+    // Instructor social clicks
+    document.querySelectorAll('.instructor-social').forEach(function(link) {
+      link.addEventListener('click', function() {
+        hmTrack('social_click', { platform: link.textContent.trim(), section: 'instructor', page: 'curso' });
+      });
+    });
+
+    // Scroll depth tracking
+    var scrollMarkers = [25, 50, 75, 100];
+    var scrollFired = {};
+    window.addEventListener('scroll', function() {
+      var scrollPercent = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
+      scrollMarkers.forEach(function(marker) {
+        if (scrollPercent >= marker && !scrollFired[marker]) {
+          scrollFired[marker] = true;
+          hmTrack('scroll_depth', { percent: marker, page: 'curso' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>

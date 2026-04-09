@@ -11,7 +11,6 @@
     "title": "Frontend Engineer",
     "yearsOfExperience": 10,
     "location": "Brazil",
-    "openToRelocate": true,
     "email": "hello@samuelrizzon.dev",
     "handle": "@samuelrizzondev",
     "languages": ["Portuguese", "English"],
@@ -64,6 +63,16 @@
       "role": "Frontend Developer",
       "period": "Dec 2016 - Mar 2022",
       "highlight": "Electronic Signature product, 150K+ users"
+    }
+  ],
+  "courses": [
+    {
+      "name": "Claude do Zero ao Deploy",
+      "url": "https://samuelrizzon.dev/curso",
+      "description": "Pre-sale course teaching Claude Code from setup to deploying a real product",
+      "price": { "presale": "R$97", "launch": "R$297+" },
+      "checkout": "https://pay.kiwify.com.br/8Vk2efc",
+      "modules": ["Setup e Fundamentos", "Meu Workflow", "Do Zero ao Deploy"]
     }
   ],
   "social": {

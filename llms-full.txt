@@ -94,11 +94,11 @@ He is a power user of Claude Code, having built 10+ projects with it and created
   - Built a scalable multi-language platform with marketing tracking integration
   - Started a component library in Angular aligned with Ford's Design System
 
-### TOTVS - Frontend Developer
+### TOTVS - Fullstack Developer
 - Period: December 2016 - March 2022 (5 years 4 months)
 - Location: Belo Horizonte, Brazil
 - Achievements:
-  - Sole frontend developer for TOTVS Electronic Signature product
+  - Sole fullstack developer for TOTVS Electronic Signature product
   - Designed the full UI in Figma, built it in Angular from scratch
   - Developed a Chrome extension + Windows app for A1/A3 digital certificate signing (ICP-Brasil standard), reaching 150K+ users
   - Engineered complex state management ensuring zero data loss on page reload or unexpected exits

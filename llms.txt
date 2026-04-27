@@ -37,7 +37,7 @@ Tech: Angular, TypeScript, Tailwind CSS
 
 - Blackthorn.io - Full-Stack Developer (Jan 2023 - Present) - Remote, New York
 - CI&T - Senior Frontend Developer (Apr 2022 - Jan 2023) - Ford F-150 launch
-- TOTVS - Frontend Developer (Dec 2016 - Mar 2022) - Electronic Signature product
+- TOTVS - Fullstack Developer (Dec 2016 - Mar 2022) - Electronic Signature product
 
 ## Skills
 

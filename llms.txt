@@ -1,10 +1,10 @@
 # Samuel Rizzon
 
-> Frontend Engineer with 10 years of experience. Building products people use.
+> Product Engineer with 10 years of experience. Building products people use.
 
 ## Who is Samuel Rizzon?
 
-Samuel Rizzon is a Frontend Engineer based in Brazil with 10 years of experience building consumer web products. He works remotely for Blackthorn.io (NYC) and builds products independently. He is a power user of Claude Code, having built 10+ projects with it.
+Samuel Rizzon is a Product Engineer based in Brazil with 10 years of experience building consumer web products. He works remotely for Blackthorn.io (NYC) and builds products independently. He is a power user of Claude Code, having built 10+ projects with it.
 
 ## Contact
 

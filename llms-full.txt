@@ -6,7 +6,7 @@ URL: https://samuelrizzon.dev
 
 ## About
 
-Samuel Rizzon is a Frontend Engineer with 10 years of experience building consumer web products, from enterprise platforms to solo-shipped products with real users and revenue.
+Samuel Rizzon is a Product Engineer with 10 years of experience building consumer web products, from enterprise platforms to solo-shipped products with real users and revenue.
 
 He has built products used by 100K+ people, shipped a SaaS to $1K MRR in one month, co-founded an open-source library with 939 GitHub stars, and published a research paper at Oxford.
 

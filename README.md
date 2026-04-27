@@ -1,6 +1,6 @@
 # samuelrizzon.dev
 
-Personal portfolio site for [Samuel Rizzon](https://samuelrizzon.dev) — Frontend Engineer with 10 years of experience.
+Personal portfolio site for [Samuel Rizzon](https://samuelrizzon.dev) — Product Engineer with 10 years of experience.
 
 ## Stack
 
